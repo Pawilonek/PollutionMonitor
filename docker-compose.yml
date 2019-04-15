@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+    app:
+        # image: golang:1.12-alpine
+        # container_name: app
+        build: ./docker/app
+        volumes:
+        #   - ./src:/go
+        #   - ./:/go
+          - ./src:/go/src/app
+        # networks:
+        #   - default
+        ports:
+          - 8000:80
+        # environment:
+            # PORT: 80
+        depends_on:
+            - influxdb
+
+    influxdb:
+        build: ./docker/influxdb
+        environment:
+            - INFLUXDB_DB=${INFLUXDB_DATABASE}
+            - INFLUXDB_USER=${INFLUXDB_USERNAME}
+            - INFLUXDB_USER_PASSWORD=${INFLUXDB_PASSWORD}
+
+      # Redis Service   
+#   redis:
+#     image: "redis:alpine" # Use a public Redis image to build the redis service    
+#     restart: unless-stopped
+#     networks:
+#       - backend                
+# Networks to be created to facilitate communication between containers
+# networks:
+#   backend:  
+
+volumes: 
+  influxdb-data:
