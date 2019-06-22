@@ -51,10 +51,7 @@ first-run:
 	go get github.com/influxdata/influxdb1-client/v2
 
 run:
-#	docker run --name wol -d -p 80:80 -v "${CURDIR}":/go --workdir /go --net=host pawilonek/wol ./main
-	# docker run --name wol -d -p 80:80 -v "${CURDIR}":/go --workdir /go --net=host pawilonek/wol go run src/main/main.go
 	$(DOCKER_COMPOSE) up -d
-	# -d --remove-orphans
 
 build:
 	$(DOCKER_COMPOSE) build
@@ -71,6 +68,9 @@ stop:
 
 logs:
 	$(DOCKER_COMPOSE) logs -f
+
+logs-app:
+	$(DOCKER_COMPOSE) logs -f app
 
 list:
 	$(DOCKER_COMPOSE) ps

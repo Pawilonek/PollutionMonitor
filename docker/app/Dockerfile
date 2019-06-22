@@ -9,6 +9,7 @@ ENV PORT=80
 RUN apk add --no-cache git
 
 RUN go get github.com/influxdata/influxdb1-client/v2
+RUN go get github.com/julienschmidt/httprouter
 
 CMD ["go", "run", "app"]
 # CMD ["app"]
