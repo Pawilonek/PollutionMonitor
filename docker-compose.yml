@@ -1,12 +1,17 @@
 version: '3'
 
 services:
+  docs:
+    build: ./services/docs
+    ports:
+      - 80:80
+    volumes:
+      - ./docs:/mkdocs/docs
+
   collector:
     build: ./services/collector
     ports:
       - 8000:80
-    # environment:
-        # PORT: 80
     depends_on:
       - influxdb
 
@@ -24,16 +29,8 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=secret
     ports:
       - 3000:3000
-
-      # Redis Service   
-#   redis:
-#     image: "redis:alpine" # Use a public Redis image to build the redis service    
-#     restart: unless-stopped
-#     networks:
-#       - backend                
-# Networks to be created to facilitate communication between containers
-# networks:
-#   backend:  
+    depends_on:
+      - influxdb
 
 volumes: 
   influxdb-data:

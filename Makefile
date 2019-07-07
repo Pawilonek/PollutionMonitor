@@ -44,14 +44,11 @@ COLOR_BACKGROUND_MAGENTS_BRIGHT=$(shell echo -e "\u001b[45;1m")
 COLOR_BACKGROUND_CYAN_BRIGHT=$(shell echo -e "\u001b[46;1m")
 COLOR_BACKGROUND_WHITE_BRIGHT=$(shell echo -e "\u001b[47;1m")
 
-default: run
-
-first-run:
-	set GOPATH=%cd%
-	go get github.com/influxdata/influxdb1-client/v2
-
 run:
-	$(DOCKER_COMPOSE) up -d
+	$(DOCKER_COMPOSE) up -d --remove-orphans
+
+ps:
+	$(DOCKER_COMPOSE) ps
 
 build:
 	$(DOCKER_COMPOSE) build
