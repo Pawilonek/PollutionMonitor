@@ -4,7 +4,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/influxdata/influxdb1-client/v2"
+	"github.com/orourkedd/influxdb1-client/client"
 )
 
 type Mearsurement struct {

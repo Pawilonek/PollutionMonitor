@@ -1,0 +1,4 @@
+github.com/julienschmidt/httprouter v1.2.0 h1:TDTW5Yz1mjftljbcKqRcrYhd4XeOoI98t+9HbQbYf7g=
+github.com/julienschmidt/httprouter v1.2.0/go.mod h1:SYymIcj16QtmaHHD7aYtjjsJG7VTCxuUUipMqKk8s4w=
+github.com/orourkedd/influxdb1-client v0.0.0-20190326200226-bd3b72602b58 h1:S9I5Y0M0BIEmTNexrkKy3lbciMp5QUaKbRUjenVj618=
+github.com/orourkedd/influxdb1-client v0.0.0-20190326200226-bd3b72602b58/go.mod h1:asTyKG+9d3Ei6HOeqpxaO81wIwyitdvxuk4e1caZjLw=

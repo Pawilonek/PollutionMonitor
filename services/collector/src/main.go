@@ -1,8 +1,8 @@
 package main
 
 import (
-	"app/controllers"
-	"app/repo"
+	"github.com/Pawilonek/PollutionMonitor/services/collector/controllers"
+	"github.com/Pawilonek/PollutionMonitor/services/collector/repo"
 	"log"
 	"net/http"
 	"os"

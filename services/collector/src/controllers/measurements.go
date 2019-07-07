@@ -1,11 +1,12 @@
 package controllers
 
 import (
-	"app/repo"
 	"encoding/json"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
+
+	"github.com/Pawilonek/PollutionMonitor/services/collector/repo"
 )
 
 func Measurements(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {

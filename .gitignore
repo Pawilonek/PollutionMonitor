@@ -1,5 +1,0 @@
-*.exe
-
-/src/github.com/
-/src/golang.org/
-/pkg/
