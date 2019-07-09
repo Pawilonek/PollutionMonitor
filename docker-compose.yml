@@ -27,7 +27,7 @@ services:
     ports:
       - 8001:80
     volumes:
-      - ./services/panel/src:/app
+      - ./services/panel:/app
 
   grafana:
     image: grafana/grafana
