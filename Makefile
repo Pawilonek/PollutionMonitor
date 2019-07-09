@@ -81,3 +81,6 @@ influxdb:
 	@echo -e "$(COLOR_CYAN_BRIGHT)  <[ Run InfluxDB console ]>  $(COLOR_RESET)"
 	@echo -e "$(COLOR_BLUE_BRIGHT)Connect to InfluxDB container and log in to database$(COLOR_RESET)"
 	@$(DOCKER_COMPOSE) exec influxdb influx -database '$(INFLUXDB_DATABASE)' -username '$(INFLUXDB_USERNAME)' -password '$(INFLUXDB_PASSWORD)'
+
+php:
+	@$(DOCKER_COMPOSE) exec panel  sh -c "cd /app && sh"

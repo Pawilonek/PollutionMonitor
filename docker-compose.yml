@@ -22,6 +22,13 @@ services:
       - INFLUXDB_USER=${INFLUXDB_USERNAME}
       - INFLUXDB_USER_PASSWORD=${INFLUXDB_PASSWORD}
 
+  panel:
+    build: ./services/panel
+    ports:
+      - 8001:80
+    volumes:
+      - ./services/panel/src:/app
+
   grafana:
     image: grafana/grafana
     environment:
