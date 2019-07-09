@@ -1,8 +1,7 @@
 {
-    "name": "symfony/skeleton",
+    "name": "PollutionMonitor/panel",
     "type": "project",
     "license": "MIT",
-    "description": "A minimal Symfony project recommended to create bare bones applications",
     "require": {
         "php": "^7.2",
         "ext-ctype": "*",
@@ -35,14 +34,6 @@
             "App\\Tests\\": "tests/"
         }
     },
-    "replace": {
-        "paragonie/random_compat": "2.*",
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php71": "*",
-        "symfony/polyfill-php70": "*",
-        "symfony/polyfill-php56": "*"
-    },
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
@@ -54,14 +45,5 @@
         "post-update-cmd": [
             "@auto-scripts"
         ]
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "4.3.*"
-        }
     }
 }
