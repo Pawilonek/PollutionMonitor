@@ -18,6 +18,4 @@ RUN echo "## Install Composer (package manager) ##" \
 	&& php composer-setup.php --install-dir=/bin --filename=composer \
 	&& php -r "unlink('composer-setup.php');"
 
-WORKDIR /app/public
-
-ENTRYPOINT ["php", "-S", "0.0.0.0:80"]
+CMD ["php-fpm"]

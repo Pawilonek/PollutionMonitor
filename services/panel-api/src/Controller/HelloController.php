@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Validation;
 class HelloController
 {
   /**
-   * @Route("/hello")
+   * @Route("/api/hello")
    */
   public function helloAction(LoggerInterface $logger): Response
   {

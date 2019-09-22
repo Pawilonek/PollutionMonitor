@@ -10,4 +10,4 @@ RUN mkdir docs
 COPY ./mkdocs.yml .
 
 # Serve development version
-CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:80"]
+CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000", "--no-livereload"]

@@ -1,19 +1,38 @@
 version: '3'
 
 services:
-  docs:
-    build: ./services/docs
+  nginx:
+    build: ./services/nginx
     ports:
       - 80:80
+    networks:
+      - nginx
+    depends_on:
+      - docs
+      - collector
+      - grafana
+
+  panel-api:
+    build: ./services/panel-api
+    volumes:
+      - ./services/panel-api:/app
+    networks:
+      - nginx
+
+  docs:
+    build: ./services/docs
     volumes:
       - ./docs:/mkdocs/docs
+    networks:
+      - nginx
 
   collector:
     build: ./services/collector
-    ports:
-      - 8000:80
     depends_on:
       - influxdb
+    networks:
+     - nginx
+     - influx
 
   influxdb:
     build: ./services/influxdb
@@ -21,23 +40,23 @@ services:
       - INFLUXDB_DB=${INFLUXDB_DATABASE}
       - INFLUXDB_USER=${INFLUXDB_USERNAME}
       - INFLUXDB_USER_PASSWORD=${INFLUXDB_PASSWORD}
-
-  panel:
-    build: ./services/panel
-    ports:
-      - 8001:80
-    volumes:
-      - ./services/panel:/app
+    networks:
+      - influx
 
   grafana:
     image: grafana/grafana
     environment:
       - GF_SERVER_ROOT_URL=http://localhost
       - GF_SECURITY_ADMIN_PASSWORD=secret
-    ports:
-      - 3000:3000
     depends_on:
       - influxdb
+    networks:
+      - nginx
+      - influx
 
 volumes: 
   influxdb-data:
+
+networks:
+  nginx:
+  influx:
