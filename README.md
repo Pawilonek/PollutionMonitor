@@ -4,9 +4,8 @@ A service that allows you to collect and display data about air pollution in you
 
 
 todo:
- * Generate docs and serve via Nginx insead of phyton server
- * Help for makefile
- 
+ * Generate docs and serve via Nginx insead of phyton server 
+
 
 hosts:
 
@@ -18,4 +17,3 @@ hosts:
     127.0.0.1 www.collector.pm.local
     127.0.0.1 grafana.pm.local
     127.0.0.1 www.grafana.pm.local
-
